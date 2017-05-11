@@ -474,7 +474,7 @@ class BigIntegerV8 implements BigInteger {
   }
 
   /** set from string [s] and radix [b] */
-  void fromString(s, int b) {
+  void fromString(dynamic s, int b) {
     var this_array = this.array;
     var k;
     if(b == 16) { k = 4;
@@ -621,7 +621,7 @@ class BigIntegerV8 implements BigInteger {
   }
 
   /** r = this << n */
-  void lShiftTo(n,r) {
+  void lShiftTo(n,BigIntegerV8 r) {
     var this_array = this.array;
     var r_array = r.array;
     var bs = n%BI_DB;
@@ -678,7 +678,7 @@ class BigIntegerV8 implements BigInteger {
   }
 
   /** r = this - a */
-  void subTo(a,r) {
+  void subTo(BigIntegerV8 a, BigIntegerV8 r) {
     var this_array = this.array;
     var r_array = r.array;
     var a_array = a.array;
@@ -744,7 +744,7 @@ class BigIntegerV8 implements BigInteger {
    * r = this * a, r != this,a (HAC 14.12)
    * [this] should be the larger one if appropriate.
    */
-  void multiplyTo(a,r) {
+  void multiplyTo(BigIntegerV8 a, BigIntegerV8 r) {
     var this_array = this.array;
     var r_array = r.array;
     BigIntegerV8 x = this.abs();
@@ -1266,7 +1266,7 @@ class BigIntegerV8 implements BigInteger {
   flipBit(n) { return this.changeBit(n,op_xor); }
 
   /** r = this + a */
-  addTo(a,r) {
+  addTo(BigIntegerV8 a, BigIntegerV8 r) {
     var this_array = this.array;
     var a_array = a.array;
     var r_array = r.array;
@@ -1380,7 +1380,7 @@ class BigIntegerV8 implements BigInteger {
    * r = lower n words of "this * a", a.t <= n
    * "this" should be the larger one if appropriate.
    */
-  multiplyLowerTo(a,n,r) {
+  multiplyLowerTo(BigIntegerV8 a, int n, BigIntegerV8 r) {
     var r_array = r.array;
     var a_array = a.array;
     var i = Mathx.min(this.t+a.t,n);
@@ -1477,7 +1477,7 @@ class BigIntegerV8 implements BigInteger {
   }
 
   /** gcd(this,a) (HAC 14.54) */
-  gcd(a) {
+  gcd(BigIntegerV8 a) {
     var x = (this.s<0)?this.negate_op():this.clone();
     var y = (a.s<0)?a.negate_op():a.clone();
     if(x.compareTo(y) < 0) { var t = x; x = y; y = t; }

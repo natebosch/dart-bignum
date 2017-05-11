@@ -347,7 +347,7 @@ class BigIntegerDartvm implements BigInteger {
   }
 
   /** r = this << n */
-  void lShiftTo(int n, r) {
+  void lShiftTo(int n, BigIntegerDartvm r) {
     r.data = data << n;
   }
 
@@ -357,7 +357,7 @@ class BigIntegerDartvm implements BigInteger {
   }
 
   /** r = this - a */
-  void subTo(a, r) {
+  void subTo(BigIntegerDartvm a, BigIntegerDartvm r) {
     r.data = data - a.data;
   }
 
@@ -365,7 +365,7 @@ class BigIntegerDartvm implements BigInteger {
    * r = this * a, r != this,a (HAC 14.12)
    * [this] should be the larger one if appropriate.
    */
-  void multiplyTo(a, r) {
+  void multiplyTo(BigIntegerDartvm a, BigIntegerDartvm r) {
     r.data = data * a.data;
   }
 
@@ -384,7 +384,7 @@ class BigIntegerDartvm implements BigInteger {
   }
 
   /** this mod a */
-  mod(a) {
+  mod(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data % a.data);
   }
 
@@ -528,7 +528,7 @@ class BigIntegerDartvm implements BigInteger {
   op_and(x, y) {
     return x & y;
   }
-  and(a) {
+  and(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data & a.data);
   }
 
@@ -537,7 +537,7 @@ class BigIntegerDartvm implements BigInteger {
     return x | y;
   }
 
-  or(a) {
+  or(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data | a.data);
   }
 
@@ -545,7 +545,7 @@ class BigIntegerDartvm implements BigInteger {
   op_xor(x, y) {
     return x ^ y;
   }
-  xor(a) {
+  xor(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data ^ a.data);
   }
 
@@ -553,7 +553,7 @@ class BigIntegerDartvm implements BigInteger {
   op_andnot(x, y) {
     return x & ~y;
   }
-  andNot(a) {
+  andNot(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data & ~a.data);
   }
 
@@ -644,27 +644,27 @@ class BigIntegerDartvm implements BigInteger {
   }
 
   /** r = this + a */
-  addTo(a, r) {
+  addTo(BigIntegerDartvm a, BigIntegerDartvm r) {
     r.data = data + a.data;
   }
 
   /** this + a */
-  BigIntegerDartvm add(a) {
+  BigIntegerDartvm add(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data + a.data);
   }
 
   /** this - a */
-  BigIntegerDartvm subtract(a) {
+  BigIntegerDartvm subtract(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data - a.data);
   }
 
   /** this * a */
-  BigIntegerDartvm multiply(a) {
+  BigIntegerDartvm multiply(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data * a.data);
   }
 
   /** this / a */
-  BigIntegerDartvm divide(a) {
+  BigIntegerDartvm divide(BigIntegerDartvm a) {
     return new BigIntegerDartvm(data ~/ a.data);
   }
 
@@ -707,7 +707,7 @@ class BigIntegerDartvm implements BigInteger {
   }
 
   /** gcd(this,a) (HAC 14.54) */
-  gcd(v) {
+  gcd(BigIntegerDartvm v) {
     return new BigIntegerDartvm(data.gcd(v.data));
   }
 

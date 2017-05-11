@@ -59,45 +59,45 @@ abstract class BigInteger {
       return new BigIntegerDartvm.fromBytes(signum, magnitude);
     }
   }
-   BigInteger operator %( other);
+   BigInteger operator %(covariant BigInteger other);
 
-   BigInteger operator &( other);
+   BigInteger operator &(covariant BigInteger other);
 
-   BigInteger operator *( other);
+   BigInteger operator *(covariant BigInteger other);
 
-   BigInteger operator +( other);
+   BigInteger operator +(covariant BigInteger other);
 
    BigInteger operator -();
 
-   BigInteger operator -( other);
+   BigInteger operator -(covariant BigInteger other);
 
-   BigInteger operator /( other);
+   BigInteger operator /(covariant BigInteger other);
 
-   bool operator <( other);
+   bool operator <(covariant BigInteger other);
 
    BigInteger operator <<(int shiftAmount);
 
-   bool operator <=( other);
+   bool operator <=(covariant BigInteger other);
 
-   bool operator >( other);
+   bool operator >(covariant BigInteger other);
 
-   bool operator >=( other);
+   bool operator >=(covariant BigInteger other);
 
    BigInteger operator >>(int shiftAmount);
 
-   BigInteger operator ^( other);
+   BigInteger operator ^(covariant BigInteger other);
 
    BigInteger abs();
 
-   BigInteger add(a);
+   BigInteger add(covariant BigInteger a);
 
-   void bitwiseTo(a, Function op, r);
-   
-   addTo(a, r);
+   void bitwiseTo(covariant BigInteger a, Function op, covariant BigInteger r);
 
-   and(a);
+   addTo(covariant BigInteger a, covariant BigInteger r);
 
-   andNot(a);
+   and(covariant BigInteger a);
+
+   andNot(covariant BigInteger a);
 
    bitCount();
 
@@ -105,7 +105,7 @@ abstract class BigInteger {
 
    byteValue();
 
-   cbit(x);
+   int cbit(int x);
 
    clearBit(n);
 
@@ -113,18 +113,18 @@ abstract class BigInteger {
 
    int compareTo(a);
 
-   void copyTo( r);
+   void copyTo(covariant BigInteger r);
 
    dMultiply(n);
    dAddOffset(n,w);
-   
-   divRemTo( m, q,  r);
 
-   BigInteger divide(a);
+   divRemTo(covariant BigInteger m, covariant BigInteger q, covariant BigInteger r);
 
-   Map<int, BigInteger> divideAndRemainder(a);
+   BigInteger divide(covariant BigInteger a);
 
-   bool equals( a);
+   Map<int, BigInteger> divideAndRemainder(covariant BigInteger a);
+
+   bool equals(covariant BigInteger a);
 
    BigInteger exp(int e, z);
 
@@ -134,9 +134,9 @@ abstract class BigInteger {
 
    void fromRadix(s, b);
 
-   void fromString(s, int b);
+   void fromString(String s, int b);
 
-   gcd(a);
+   gcd(covariant BigInteger a);
 
    getLowestSetBit();
 
@@ -148,32 +148,32 @@ abstract class BigInteger {
 
    bool isProbablePrime(int t);
 
-   void lShiftTo(n, r);
+   void lShiftTo(int n, covariant BigInteger r);
 
-   lbit(x);
+   int lbit(int x);
 
    // TODO: implement lowestSetBit
    int get lowestSetBit;
 
-   BigInteger max( a);
+   BigInteger max(covariant BigInteger a);
 
    bool millerRabin(t);
 
-   BigInteger min( a);
+   BigInteger min(covariant BigInteger a);
 
-   mod(a);
+   mod(covariant BigInteger a);
 
    int modInt(int n);
 
-   BigInteger modInverse( m);
+   BigInteger modInverse(covariant BigInteger m);
 
-   modPow( e,  m);
+   modPow(covariant BigInteger e, covariant BigInteger m);
 
-   BigInteger modPowInt(int e,  m);
+   BigInteger modPowInt(int e, covariant BigInteger m);
 
-   BigInteger multiply(a);
+   BigInteger multiply(covariant BigInteger a);
 
-   void multiplyTo(a, r);
+   void multiplyTo(covariant BigInteger a, covariant BigInteger r);
 
    int nbits(x);
 
@@ -189,13 +189,13 @@ abstract class BigInteger {
 
    op_xor(x, y);
 
-   or(a);
+   or(covariant BigInteger a);
 
    BigInteger pow(int e);
 
    void rShiftTo(int n, r);
 
-   BigInteger remainder( a);
+   BigInteger remainder(covariant BigInteger a);
 
    setBit(n);
 
@@ -209,10 +209,9 @@ abstract class BigInteger {
 
    void squareTo(r);
 
-   void subTo(a, r);
+   void subTo(covariant BigInteger a, covariant BigInteger r);
 
-   BigInteger subtract(a);
-
+   BigInteger subtract(covariant BigInteger a);
 
    testBit(n);
 
@@ -222,11 +221,11 @@ abstract class BigInteger {
 
    String toString([int b]);
 
-   xor(a);
+   xor(covariant BigInteger a);
 
-   BigInteger operator |( other);
+   BigInteger operator |(covariant BigInteger other);
 
    BigInteger operator ~();
 
-   BigInteger operator ~/( other);
+   BigInteger operator ~/(covariant BigInteger other);
 }
